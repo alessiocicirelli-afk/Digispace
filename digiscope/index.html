@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#073b53" name="theme-color"/>
+<meta content="DigiScope by Phygispace — Building Intelligence Assessment, whole-building Try &amp; Buy sizing, Asset Passport e opportunità ESCo." name="description"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<title>DigiScope · Building Intelligence Assessment</title>
+
+<link href="styles-base.css" rel="stylesheet"/><link href="styles-app.css" rel="stylesheet"/></head>
+<body>
+<div class="login" id="login">
+<div class="login-card">
+<div class="login-mark">D</div>
+<h1>DigiScope</h1>
+<p>Building Intelligence Assessment. Dal sopralluogo al Try Kit, dall’Asset Passport alla proposta di manutenzione o revamping.</p>
+<div class="login-grid">
+<button class="login-option on" data-mode="internal"><b>Modalità Internal</b><span>Costi industriali, effort, BOM e logiche di marginalità.</span></button>
+<button class="login-option" data-mode="client"><b>Modalità Client</b><span>Risultati, opportunità e proposte senza costi interni.</span></button>
+</div>
+<div class="login-actions"><span class="login-note">Prototipo v1 · dati salvati soltanto su questo dispositivo</span><button class="login-enter" id="enterApp">Entra nel progetto →</button></div>
+</div>
+</div>
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+<div class="brand"><div class="brand-mark">D</div><div><b>DigiScope</b><span>by Phygispace</span></div></div>
+<div class="project-chip" onclick="navTo('building')"><small>Progetto attivo</small><b id="sideProject">Via Salandra 13</b><span id="sideStage">Customer Zero · Pre-assessment</span></div>
+<nav class="nav" id="nav">
+<button class="on" data-view="dashboard"><span class="nav-icon">01</span>Dashboard</button>
+<button data-view="building"><span class="nav-icon">02</span>Building</button>
+<button data-view="survey"><span class="nav-icon">03</span>Survey</button>
+<button data-view="zones"><span class="nav-icon">04</span>Zone</button>
+<button data-view="assets"><span class="nav-icon">05</span>Asset Passport</button>
+<button data-view="sensors"><span class="nav-icon">06</span>Sensor Sizing</button>
+<button data-view="economics"><span class="nav-icon">07</span>Effort &amp; CAPEX</button>
+<button data-view="offers"><span class="nav-icon">08</span>Offerte</button>
+<button data-view="passport"><span class="nav-icon">09</span>Building Passport</button>
+</nav>
+<div class="sidebar-bottom">
+<div class="mode-toggle"><button class="on" id="modeInternal" onclick="setMode('internal')">Internal</button><button id="modeClient" onclick="setMode('client')">Client</button></div>
+<div class="sync-status"><span class="sync-dot"></span><span id="saveStatus">Salvato in locale</span></div>
+</div>
+</aside>
+<section class="main">
+<header class="topbar">
+<div style="display:flex;align-items:center;gap:10px;min-width:0"><button class="mobile-menu" id="menuBtn">☰</button><div class="page-title"><b id="topTitle">Dashboard progetto</b><span id="topSubtitle">Whole-building Try · Via Salandra 13, Roma</span></div></div>
+<div class="top-actions">
+<button class="btn small hide-mobile" onclick="importProject()">Importa</button>
+<button class="btn small hide-mobile" onclick="exportProject()">Esporta</button>
+<button class="btn small keep-mobile" onclick="downloadReport()">Report</button>
+<button class="btn primary small" id="installBtn" style="display:none">Installa app</button>
+</div>
+</header>
+<main class="content">
+<section class="view on" id="view-dashboard"></section>
+<section class="view" id="view-building"></section>
+<section class="view" id="view-survey"></section>
+<section class="view" id="view-zones"></section>
+<section class="view" id="view-assets"></section>
+<section class="view" id="view-sensors"></section>
+<section class="view" id="view-economics"></section>
+<section class="view" id="view-offers"></section>
+<section class="view" id="view-passport"></section>
+</main>
+</section>
+</div>
+<div class="modal" id="assetModal"><div class="modal-bg" onclick="closeAssetModal()"></div><aside class="modal-panel"><button class="modal-close" onclick="closeAssetModal()">×</button><div id="assetModalBody"></div></aside></div>
+<div class="modal" id="genericModal"><div class="modal-bg" onclick="closeGenericModal()"></div><aside class="modal-panel"><button class="modal-close" onclick="closeGenericModal()">×</button><div id="genericModalBody"></div></aside></div>
+<input accept="application/json" class="hidden" id="importFile" type="file"/>
+<div class="toast" id="toast"></div>
+
+<script defer="" src="catalog.js"></script><script defer="" src="state.js"></script><script defer="" src="core.js"></script><script defer="" src="sizing.js"></script><script defer="" src="dashboard.js"></script><script defer="" src="building.js"></script><script defer="" src="survey.js"></script><script defer="" src="zones.js"></script><script defer="" src="asset-ui.js"></script><script defer="" src="asset-agent.js"></script><script defer="" src="sensors.js"></script><script defer="" src="economics.js"></script><script defer="" src="offers.js"></script><script defer="" src="app.js"></script></body>
+</html>
